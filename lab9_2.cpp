@@ -2,15 +2,21 @@
 using namespace std;
 
 void printO(int N,int M){
-	for (int i = 0; i < N; i++)
+	if (N>0 && M>0)
 	{
-		for (int a = 0; a < M; a++)
+			for (int i = 0; i < N; i++)
 		{
-			cout << "o";
+			for (int a = 0; a < M; a++)
+			{
+				cout << "O";
+			}
+			cout << "\n";
 		}
-		cout << "\n";
+	}else
+	{
+		cout << "Invalid input";
 	}
-	
+
 }
 
 int main(){
