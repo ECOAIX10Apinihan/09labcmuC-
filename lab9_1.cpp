@@ -40,7 +40,6 @@ int main(){
 			cout << setw(13) << left << newbalance;
 			cout << "\n";
 		}else if(loan < pay){
-			loan = newbalance;
 			interest = (year/100.0)*loan;
 			total = (loan + interest);
 			pay = total;
@@ -55,7 +54,6 @@ int main(){
 			cout << "\n";
 			break;
 		}
-
 	}
 	return 0;
 }
