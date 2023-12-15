@@ -1,7 +1,17 @@
 #include<iostream>
 using namespace std;
 
-//Write the function printO() here
+void printO(int N,int M){
+	for (int i = 0; i < N; i++)
+	{
+		for (int a = 0; a < M; a++)
+		{
+			cout << "o";
+		}
+		cout << "\n";
+	}
+	
+}
 
 int main(){
 	
