@@ -1,7 +1,5 @@
 #include<iostream>
 #include<iomanip>
-#include<cmath>
-#include<string>
 using namespace std;
 
 int main(){	
@@ -30,7 +28,6 @@ int main(){
 			interest = (year/100.0)*loan;
 			total = (loan + interest);
 			newbalance = total - pay;	
-			loan = newbalance;
 			cout << fixed << setprecision(2);
 			cout << setw(13) << left << i+1;
 			cout << setw(13) << left << loan;
@@ -39,6 +36,7 @@ int main(){
 			cout << setw(13) << left << pay;
 			cout << setw(13) << left << newbalance;
 			cout << "\n";
+			loan = newbalance;
 		}else if(loan < pay){
 			interest = (year/100.0)*loan;
 			total = (loan + interest);
