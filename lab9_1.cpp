@@ -3,11 +3,12 @@
 using namespace std;
 
 int main(){	
-	double loan,year,pay;
+	double initial,rate,pay,Interest,Total,NewBalance;
+	int year = 0;
 	cout << "Enter initial loan: ";
-	cin >> loan;
+	cin >> initial;
 	cout << "Enter interest rate per year (%): ";
-	cin >> year;
+	cin >> rate;
 	cout << "Enter amount you can pay per year: ";
 	cin >> pay;
 
@@ -19,39 +20,26 @@ int main(){
 	cout << setw(13) << left << "Payment";
 	cout << setw(13) << left << "NewBalance";
 	cout << "\n";
-	
-	for (int i = 0; i < loan; i++)
+	NewBalance = initial;
+	do
 	{
-		double interest,total,newbalance;
-		if (loan > pay)
+		cout << fixed << setprecision(2); 
+		cout << setw(13) << left << year + 1;
+		Interest = NewBalance*(rate/100);
+		cout << setw(13) << left << NewBalance;
+		cout << setw(13) << left << Interest;
+		Total = NewBalance + Interest;
+		cout << setw(13) << left << Total;
+		if (pay > Total)
 		{
-			interest = (year/100.0)*loan;
-			total = (loan + interest);
-			newbalance = total - pay;	
-			cout << fixed << setprecision(2);
-			cout << setw(13) << left << i+1;
-			cout << setw(13) << left << loan;
-			cout << setw(13) << left << interest;
-			cout << setw(13) << left << total;
-			cout << setw(13) << left << pay;
-			cout << setw(13) << left << newbalance;
-			cout << "\n";
-			loan = newbalance;
-		}else if(loan < pay){
-			interest = (year/100.0)*loan;
-			total = (loan + interest);
-			pay = total;
-			newbalance = total - pay;
-			cout << fixed << setprecision(2);
-			cout << setw(13) << left << i+1;
-			cout << setw(13) << left << loan;
-			cout << setw(13) << left << interest;
-			cout << setw(13) << left << total;
-			cout << setw(13) << left << pay;
-			cout << setw(13) << left << newbalance;
-			cout << "\n";
-			break;
+			pay = Total;
 		}
-	}
+		cout << setw(13) << left << pay;
+		NewBalance = Total - pay;
+		cout << setw(13) << left << NewBalance;
+		cout << "\n";
+			year++;	
+	} while (NewBalance > 0);
+	
 	return 0;
 }
